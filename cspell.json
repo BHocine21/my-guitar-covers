@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "language": "en,fr",
+  "import": ["@cspell/dict-fr-fr/cspell-ext.json"],
+  "words": [
+    "vite",
+    "tsx",
+    "jsdom",
+    "MUI",
+    "vinyl",
+    "guitarist",
+    "Lumière",
+    "Aube",
+    "cspell",
+    "Bouhlala",
+    "guitarcovers",
+    "useAudioPlayer",
+    "usePlayerContext",
+    "loadedmetadata"
+  ],
+  "ignorePaths": ["node_modules", "dist", "coverage", "pnpm-lock.yaml", "public/audio"]
+}
