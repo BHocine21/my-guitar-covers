@@ -101,6 +101,9 @@ export function VerticalVolumeSlider({
           boxShadow: 'inset 0 0 3px rgba(0,0,0,0.4)',
           cursor: 'pointer',
           overflow: 'hidden',
+          // Prevent touch drags on the slider from also panning/scrolling the
+          // page on mobile (desktop is unaffected since it has no touch panning).
+          touchAction: { xs: 'none', md: 'auto' },
         }}
       >
         <Box

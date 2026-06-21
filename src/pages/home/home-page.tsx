@@ -37,7 +37,7 @@ export function HomePage(): React.JSX.Element {
             sx={{
               fontFamily: FONT_SILKSCREEN,
               fontWeight: 700,
-              fontSize: { xs: 28, md: 36 },
+              fontSize: { xs: 26, md: 36 },
               letterSpacing: '1px',
               whiteSpace: 'nowrap',
             }}
