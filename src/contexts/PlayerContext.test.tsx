@@ -10,7 +10,7 @@ const tracks: Track[] = [
   { id: 'c', title: 'Track C', src: '/audio/c.mp3' },
 ]
 
-function wrapper({ children }: { children: ReactNode }) {
+const wrapper = ({ children }: { children: ReactNode }) => {
   return <PlayerProvider tracks={tracks}>{children}</PlayerProvider>
 }
 

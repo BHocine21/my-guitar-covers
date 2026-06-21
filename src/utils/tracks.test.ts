@@ -17,9 +17,9 @@ describe('getTracks', () => {
     expect(ids.every((id) => /^[a-z0-9-]+$/.test(id))).toBe(true)
   })
 
-  it('points src at the public audio folder', () => {
+  it('points src at the Cloudinary CDN', () => {
     const tracks = getTracks()
-    expect(tracks.every((track) => track.src.startsWith('/audio/'))).toBe(true)
+    expect(tracks.every((track) => track.src.startsWith('https://res.cloudinary.com/'))).toBe(true)
   })
 
   it('sorts tracks alphabetically by title', () => {

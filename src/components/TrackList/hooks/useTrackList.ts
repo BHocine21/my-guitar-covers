@@ -5,7 +5,7 @@ import { useTrackDurations } from '../../../hooks/useTrackDurations'
 // switch elsewhere (e.g. home-page.tsx's xs/md columns).
 const MOBILE_BREAKPOINT = 900
 
-export function useTrackList() {
+export const useTrackList = () => {
   const { tracks, currentTrack, isPlaying, selectTrack } = usePlayerContext()
   const durations = useTrackDurations(tracks)
 

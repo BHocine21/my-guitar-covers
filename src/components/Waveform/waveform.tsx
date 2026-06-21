@@ -8,7 +8,7 @@ import { FONT_VT323 } from '../../theme/fonts'
 const BAR_COUNT = 52
 const SEEK_STEP_SECONDS = 5
 
-function getBarHeights(): number[] {
+const getBarHeights = (): number[] => {
   const heights: number[] = []
   for (let i = 0; i < BAR_COUNT; i++) {
     const raw = Math.sin(i * 0.6) * 0.7 + Math.sin(i * 0.23) * 0.4 + Math.sin(i * 1.3) * 0.2
@@ -26,7 +26,7 @@ export interface WaveformProps {
   onSeek: (time: number) => void
 }
 
-export function Waveform({ currentTime, duration, onSeek }: WaveformProps): React.JSX.Element {
+export const Waveform = ({ currentTime, duration, onSeek }: WaveformProps): React.JSX.Element => {
   const theme = useTheme()
   const trackRef = useRef<HTMLDivElement>(null)
   const isSeekable = duration > 0

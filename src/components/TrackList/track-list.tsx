@@ -4,7 +4,7 @@ import { FONT_SILKSCREEN } from '../../theme/fonts'
 import { TrackRow } from '../TrackRow/track-row'
 import { useTrackList } from './hooks/useTrackList'
 
-export function TrackList(): React.JSX.Element {
+export const TrackList = (): React.JSX.Element => {
   const { tracks, currentTrack, isPlaying, selectTrack, durations } = useTrackList()
 
   return (

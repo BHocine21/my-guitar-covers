@@ -9,7 +9,7 @@ const tracks: Track[] = [
   { id: 'b', title: 'Track B', src: '/audio/b.mp3' },
 ]
 
-function renderTrackList(trackData: Track[] = tracks) {
+const renderTrackList = (trackData: Track[] = tracks) => {
   return render(
     <PlayerProvider tracks={trackData}>
       <TrackList />

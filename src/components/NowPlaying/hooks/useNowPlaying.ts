@@ -1,6 +1,6 @@
 import { usePlayerContext } from '../../../contexts/usePlayerContext'
 
-export function useNowPlaying() {
+export const useNowPlaying = () => {
   const {
     currentTrack,
     isPlaying,

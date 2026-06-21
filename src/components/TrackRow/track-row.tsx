@@ -15,14 +15,14 @@ export interface TrackRowProps {
   onSelect: (trackId: string) => void
 }
 
-export function TrackRow({
+export const TrackRow = ({
   track,
   index,
   duration,
   isActive,
   isPlaying,
   onSelect,
-}: TrackRowProps): React.JSX.Element {
+}: TrackRowProps): React.JSX.Element => {
   const theme = useTheme()
   const accent = theme.palette.primary.main
   const showEqualizer = isActive && isPlaying

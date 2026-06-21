@@ -14,7 +14,7 @@ export interface UseAudioPlayerResult {
   onEnded: (callback: () => void) => void
 }
 
-export function useAudioPlayer(): UseAudioPlayerResult {
+export const useAudioPlayer = (): UseAudioPlayerResult => {
   const audioRef = useRef<HTMLAudioElement>(new Audio())
   const endedCallbackRef = useRef<() => void>(() => {})
 

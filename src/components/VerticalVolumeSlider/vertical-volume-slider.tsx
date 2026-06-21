@@ -10,10 +10,10 @@ export interface VerticalVolumeSliderProps {
   onVolumeChange: (volume: number) => void
 }
 
-export function VerticalVolumeSlider({
+export const VerticalVolumeSlider = ({
   volume,
   onVolumeChange,
-}: VerticalVolumeSliderProps): React.JSX.Element {
+}: VerticalVolumeSliderProps): React.JSX.Element => {
   const trackRef = useRef<HTMLDivElement>(null)
   const Icon = volume === 0 ? VolumeOffIcon : VolumeUpIcon
 
@@ -78,9 +78,7 @@ export function VerticalVolumeSlider({
           VOL
         </Typography>
       </Box>
-      <Typography sx={{ fontSize: 12, lineHeight: 1, color: '#8a8a8a' }}>
-        +
-      </Typography>
+      <Typography sx={{ fontSize: 12, lineHeight: 1, color: '#8a8a8a' }}>+</Typography>
       <Box
         ref={trackRef}
         role="slider"
@@ -132,9 +130,7 @@ export function VerticalVolumeSlider({
           }}
         />
       </Box>
-      <Typography sx={{ fontSize: 14, lineHeight: 1, color: '#8a8a8a' }}>
-        –
-      </Typography>
+      <Typography sx={{ fontSize: 14, lineHeight: 1, color: '#8a8a8a' }}>–</Typography>
     </Box>
   )
 }

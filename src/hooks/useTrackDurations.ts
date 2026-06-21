@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Track } from '../types/track'
 
-export function useTrackDurations(tracks: Track[]): Record<string, number> {
+export const useTrackDurations = (tracks: Track[]): Record<string, number> => {
   const [durations, setDurations] = useState<Record<string, number>>({})
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { usePlayerContext } from '../../../contexts/usePlayerContext'
 
-export function useTurntablePlayer() {
+export const useTurntablePlayer = () => {
   const { isPlaying, volume, setVolume } = usePlayerContext()
 
   return { isPlaying, volume, setVolume }

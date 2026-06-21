@@ -5,14 +5,13 @@ import { TurntablePlayer } from '../../components/TurntablePlayer/turntable-play
 import { NowPlaying } from '../../components/NowPlaying/now-playing'
 import { TrackList } from '../../components/TrackList/track-list'
 
-export function HomePage(): React.JSX.Element {
+export const HomePage = (): React.JSX.Element => {
   return (
     <Box
       sx={{
         minHeight: '100vh',
         backgroundColor: '#e9e7e3',
-        backgroundImage:
-          'radial-gradient(circle at 50% 0%, #efedea 0%, #e6e4e0 60%, #e0ded9 100%)',
+        backgroundImage: 'radial-gradient(circle at 50% 0%, #efedea 0%, #e6e4e0 60%, #e0ded9 100%)',
         color: '#1a1917',
       }}
     >

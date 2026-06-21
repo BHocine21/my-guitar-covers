@@ -1,4 +1,4 @@
-export function formatDuration(seconds: number): string {
+export const formatDuration = (seconds: number): string => {
   if (!Number.isFinite(seconds) || seconds < 0) {
     return '0:00'
   }

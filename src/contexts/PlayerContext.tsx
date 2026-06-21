@@ -9,7 +9,7 @@ export interface PlayerProviderProps {
   children: ReactNode
 }
 
-export function PlayerProvider({ tracks, children }: PlayerProviderProps): React.JSX.Element {
+export const PlayerProvider = ({ tracks, children }: PlayerProviderProps): React.JSX.Element => {
   const player = useAudioPlayer()
   const [currentTrackId, setCurrentTrackId] = useState<string | null>(null)
 

@@ -7,7 +7,7 @@ const BARS = [
   { duration: '0.8s', delay: '0.3s' },
 ]
 
-export function EqualizerBars(): React.JSX.Element {
+export const EqualizerBars = (): React.JSX.Element => {
   const theme = useTheme()
 
   return (

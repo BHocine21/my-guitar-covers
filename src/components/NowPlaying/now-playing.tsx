@@ -9,7 +9,7 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
 import { Waveform } from '../Waveform/waveform'
 import { useNowPlaying } from './hooks/useNowPlaying'
 
-export function NowPlaying(): React.JSX.Element {
+export const NowPlaying = (): React.JSX.Element => {
   const theme = useTheme()
   const {
     currentTrack,

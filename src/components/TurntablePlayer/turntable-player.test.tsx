@@ -7,7 +7,7 @@ import type { Track } from '../../types/track'
 
 const tracks: Track[] = [{ id: 'a', title: 'Track A', src: '/audio/a.mp3' }]
 
-function SelectFirstTrack() {
+const SelectFirstTrack = () => {
   const { selectTrack } = usePlayerContext()
   useEffect(() => selectTrack('a'), [selectTrack])
   return null
@@ -30,7 +30,7 @@ describe('TurntablePlayer', () => {
       return Promise.resolve()
     }
 
-    function Wrapper() {
+    const Wrapper = () => {
       return (
         <PlayerProvider tracks={tracks}>
           <SelectFirstTrack />

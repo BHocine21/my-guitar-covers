@@ -10,13 +10,13 @@ const tracks: Track[] = [
   { id: 'b', title: 'Track B', src: '/audio/b.mp3' },
 ]
 
-function SelectFirstTrack() {
+const SelectFirstTrack = () => {
   const { selectTrack } = usePlayerContext()
   useEffect(() => selectTrack('a'), [selectTrack])
   return null
 }
 
-function renderNowPlaying() {
+const renderNowPlaying = () => {
   return render(
     <PlayerProvider tracks={tracks}>
       <NowPlaying />
@@ -38,7 +38,7 @@ describe('NowPlaying', () => {
   })
 
   it('shows the track title and enables controls once a track is selected', () => {
-    function Wrapper() {
+    const Wrapper = () => {
       return (
         <PlayerProvider tracks={tracks}>
           <SelectFirstTrack />

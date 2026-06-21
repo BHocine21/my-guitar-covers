@@ -14,7 +14,7 @@ const CORNER_SCREW_STYLE = {
   boxShadow: 'inset 0 0 2px rgba(0,0,0,0.4)',
 } as const
 
-export function TurntablePlayer(): React.JSX.Element {
+export const TurntablePlayer = (): React.JSX.Element => {
   const theme = useTheme()
   const accent = theme.palette.primary.main
   const { isPlaying, volume, setVolume } = useTurntablePlayer()

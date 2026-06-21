@@ -19,7 +19,7 @@ const theme = createTheme({
   },
 })
 
-export function App(): React.JSX.Element {
+export const App = (): React.JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
