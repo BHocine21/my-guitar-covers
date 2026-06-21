@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { render, screen } from '@testing-library/react'
-import { PlayerBar } from './player-bar'
+import { NowPlaying } from './now-playing'
 import { PlayerProvider } from '../../contexts/PlayerContext'
 import { usePlayerContext } from '../../contexts/usePlayerContext'
 import type { Track } from '../../types/track'
@@ -16,38 +16,39 @@ function SelectFirstTrack() {
   return null
 }
 
-function renderPlayerBar() {
+function renderNowPlaying() {
   return render(
     <PlayerProvider tracks={tracks}>
-      <PlayerBar />
+      <NowPlaying />
     </PlayerProvider>,
   )
 }
 
-describe('PlayerBar', () => {
+describe('NowPlaying', () => {
   it('shows a placeholder when no track is selected', () => {
-    renderPlayerBar()
-    expect(screen.getByText(/Sélectionnez un morceau/i)).toBeInTheDocument()
+    renderNowPlaying()
+    expect(screen.getByText(/sélectionnez un morceau/i)).toBeInTheDocument()
   })
 
   it('disables transport controls when no track is selected', () => {
-    renderPlayerBar()
+    renderNowPlaying()
     expect(screen.getByRole('button', { name: /lire/i })).toBeDisabled()
     expect(screen.getByRole('button', { name: /morceau suivant/i })).toBeDisabled()
     expect(screen.getByRole('button', { name: /morceau précédent/i })).toBeDisabled()
   })
 
-  it('enables transport controls once a track is playing', () => {
+  it('shows the track title and enables controls once a track is selected', () => {
     function Wrapper() {
       return (
         <PlayerProvider tracks={tracks}>
           <SelectFirstTrack />
-          <PlayerBar />
+          <NowPlaying />
         </PlayerProvider>
       )
     }
     render(<Wrapper />)
 
+    expect(screen.getByText('Track A')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /mettre en pause|lire/i })).toBeEnabled()
   })
 })

@@ -1,15 +1,13 @@
 import { usePlayerContext } from '../../../contexts/usePlayerContext'
 
-export function usePlayerBar() {
+export function useNowPlaying() {
   const {
     currentTrack,
     isPlaying,
     currentTime,
     duration,
-    volume,
     togglePlay,
     seek,
-    setVolume,
     playNext,
     playPrevious,
   } = usePlayerContext()
@@ -19,10 +17,8 @@ export function usePlayerBar() {
     isPlaying,
     currentTime,
     duration,
-    volume,
     togglePlay,
     seek,
-    setVolume,
     playNext,
     playPrevious,
   }

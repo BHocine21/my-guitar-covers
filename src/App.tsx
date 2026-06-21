@@ -4,11 +4,18 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { HomePage } from './pages/home/home-page'
 import { PlayerProvider } from './contexts/PlayerContext'
 import { getTracks } from './utils/tracks'
+import { FONT_PIXELIFY } from './theme/fonts'
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
-    primary: { main: '#1db954' },
+    mode: 'light',
+    primary: { main: '#cf7a2c' },
+    background: { default: '#e9e7e3' },
+    text: { primary: '#1a1917' },
+  },
+  typography: {
+    h1: { fontFamily: FONT_PIXELIFY, fontWeight: 600 },
+    h2: { fontFamily: FONT_PIXELIFY, fontWeight: 600 },
   },
 })
 
