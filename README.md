@@ -8,7 +8,7 @@ A personal web player for browsing and listening to guitar cover recordings, sty
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Desktop screenshot](screenshot-desktop.png) | ![Mobile screenshot](screenshot-mobile.png) |
+| ![Desktop demo](screenshot-desktop.gif) | ![Mobile demo](screenshot-mobile.gif) |
 
 ## Features
 

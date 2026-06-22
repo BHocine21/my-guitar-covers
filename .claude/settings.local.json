@@ -8,7 +8,36 @@
       "Bash(npx tsc *)",
       "Bash(npx vite *)",
       "Bash(node crop.mjs)",
-      "Bash(node verify.mjs)"
+      "Bash(node verify.mjs)",
+      "Bash(ffmpeg -version)",
+      "Bash(npx playwright *)",
+      "Bash(where ffmpeg *)",
+      "Bash(winget --version)",
+      "Bash(choco --version)",
+      "Bash(winget install *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173)",
+      "Bash(tasklist)",
+      "Bash(node -e ' *)",
+      "Bash(node .tmp-record.mjs)",
+      "Bash(cd \"c:\\\\Users\\\\hocin\\\\Workspace\\\\my-guitar-covers\" && rm -f .tmp-videos/*.webm && ls .tmp-videos)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(powershell -NoProfile -Command \"Get-Process chrome,node -ErrorAction SilentlyContinue | Sort-Object CPU -Descending | Select-Object -First 15 Id,CPU,WorkingSet,ProcessName\")",
+      "PowerShell(Get-Process chrome,node,chrome-headless-shell -ErrorAction SilentlyContinue)",
+      "Bash(cd \"c:\\\\Users\\\\hocin\\\\Workspace\\\\my-guitar-covers\" && rm -f .tmp-videos/*.webm)",
+      "PowerShell(Get-Process chrome,node -ErrorAction SilentlyContinue | Where-Object {$_.StartTime -gt \\(Get-Date\\).AddMinutes\\(-6\\)} | Select-Object Id,ProcessName,StartTime,CPU,Responding)",
+      "Bash(node .tmp-diag.mjs)",
+      "Bash(cd \"c:\\\\Users\\\\hocin\\\\Workspace\\\\my-guitar-covers\" && rm -f .tmp-videos/*.webm .tmp-diag.mjs)",
+      "Bash(/c/Users/hocin/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.1-full_build/bin/ffprobe.exe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 'c:\\\\Users\\\\hocin\\\\Workspace\\\\my-guitar-covers\\\\.tmp-videos\\\\mobile.webm')",
+      "Bash(/c/Users/hocin/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.1-full_build/bin/ffprobe.exe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 'c:\\\\Users\\\\hocin\\\\Workspace\\\\my-guitar-covers\\\\.tmp-videos\\\\desktop.webm')",
+      "Bash(cp /tmp/desktop-test.gif screenshot-desktop.gif)",
+      "Bash(cp /tmp/mobile-test.gif screenshot-mobile.gif)",
+      "Bash(rm -f /tmp/desktop-test.gif /tmp/mobile-test.gif)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 380)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\hocin\\Workspace\\my-guitar-covers\\.tmp-videos",
+      "c:\\Users\\hocin\\Workspace\\my-guitar-covers\\.tmp-videos"
     ]
   }
 }
