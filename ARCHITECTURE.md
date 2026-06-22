@@ -1,10 +1,6 @@
 # Architecture — my-guitar-covers
 
-## Screenshots
-
-| Desktop | Mobile |
-| --- | --- |
-| ![Desktop screenshot](screenshot-desktop.png) | ![Mobile screenshot](screenshot-mobile.png) |
+Design rationale, data model, and assumptions behind this app. See [README.md](README.md) for screenshots, the full tech stack, getting started, and deployment.
 
 ## 1. Input analysis
 
@@ -68,14 +64,10 @@ are not displayed for lack of data (documented assumption below).
 
 ## 2. Tech stack
 
-- React 18 (strict TypeScript) + Vite + pnpm
-- react-router-dom (a single main route `/`, designed to be extensible to a track-detail page)
-- MUI (Material UI) as the design system — light "turntable" theme (amber accent
-  `#cf7a2c`, warm background `#e9e7e3`), Google Fonts Pixelify Sans / Silkscreen / VT323
-  (see `src/theme/fonts.ts`)
-- ESLint + Prettier + cspell
-- Jest + React Testing Library
-- Playwright — used ad hoc to drive the running app and take screenshots when verifying UI changes (not part of the automated test suite)
+See README.md's [Tech Stack](README.md#tech-stack) for the full list of libraries and tools. Notes specific to the architecture:
+
+- react-router-dom: a single main route `/` today, kept in a router so a track-detail page could be added later without restructuring.
+- MUI theme: light "turntable" palette — amber accent `#cf7a2c`, warm background `#e9e7e3` — with Google Fonts Pixelify Sans / Silkscreen / VT323 (see `src/theme/fonts.ts`).
 
 ## 3. Application breakdown
 
@@ -118,8 +110,8 @@ are not displayed for lack of data (documented assumption below).
 
 ### Utils
 
-- `utils/tracks.ts` — Source of the tracks (derived from the files in `public/audio`)
-  and id/title generation from the filename.
+- `utils/tracks.ts` — Source of the tracks (filenames mapped to their Cloudinary
+  `public_id`, see §5) and id/title generation from the filename.
 - `utils/format.ts` — Duration formatting (`mm:ss`).
 
 ### TypeScript data model
@@ -128,7 +120,7 @@ are not displayed for lack of data (documented assumption below).
 interface Track {
   id: string
   title: string
-  src: string // path to the audio file in /public/audio
+  src: string // Cloudinary delivery URL of the audio file (see §5)
 }
 
 interface PlayerState {
@@ -151,7 +143,18 @@ The home page uses a CSS grid that switches at the MUI `md` breakpoint (900px):
 - **Mobile (< 900px)**: a single, centered column (max 430px wide) — turntable and
   now-playing on top, track list below, matching the dedicated mobile design.
 
-## 5. Tests
+## 5. Audio hosting (Cloudinary)
+
+The `.mp3` files used to be committed under `public/audio/` and bundled with the app.
+They are now hosted on Cloudinary and streamed directly from its CDN — see README.md's
+[Adding a New Cover](README.md#adding-a-new-cover) for the upload/mapping workflow.
+
+Rationale: keeps the git repo small and avoids shipping multi-MB binaries in every build,
+while still giving each track a stable, CDN-backed URL. No credentials are involved
+client-side — delivery URLs are public read-only links; uploads are done manually from
+the Cloudinary dashboard.
+
+## 6. Tests
 
 Every component, hook and util has its own coverage (rendering, interactions, edge
 cases: volume at 0/1, no track selected, end of track → next track, hover/keyboard

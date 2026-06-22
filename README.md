@@ -2,6 +2,8 @@
 
 A personal web player for browsing and listening to guitar cover recordings, styled as a retro turntable.
 
+**Live demo:** [hb-covers.vercel.app](https://hb-covers.vercel.app/)
+
 ## Screenshots
 
 | Desktop | Mobile |
@@ -26,6 +28,8 @@ A personal web player for browsing and listening to guitar cover recordings, sty
 - [pnpm](https://pnpm.io/) — package manager
 - [React Router](https://reactrouter.com/) — routing
 - [MUI (Material UI)](https://mui.com/) — design system, themed with a light "turntable" palette (amber accent, warm gray background) and Google Fonts (Pixelify Sans, Silkscreen, VT323)
+- [Cloudinary](https://cloudinary.com/) — hosts the audio files (`.mp3`), served directly from Cloudinary's CDN instead of `public/audio/`
+- [Vercel](https://vercel.com/) — hosting/deployment (auto-detected Vite static build)
 - [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/) — testing
 - [Playwright](https://playwright.dev/) — manual/visual verification of the running app
 - ESLint, Prettier, cspell — linting, formatting, spell-checking
@@ -80,7 +84,6 @@ pnpm preview
 ## Project Structure
 
 ```
-public/audio/         Audio files (.mp3) for each cover
 src/
   components/
     TurntablePlayer/    Decorative turntable (spinning record, tonearm, power switch); embeds VerticalVolumeSlider
@@ -106,10 +109,16 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full design rationale, data model
 
 ## Adding a New Cover
 
-1. Drop the `.mp3` file into `public/audio/`.
-2. Add its filename to the `AUDIO_FILENAMES` list in [src/utils/tracks.ts](src/utils/tracks.ts).
+1. Upload the `.mp3` file to the Cloudinary account (resource type `video`, used for all audio/video uploads).
+2. Add its filename to the `AUDIO_FILENAMES` list and its Cloudinary `public_id` to `CLOUDINARY_PUBLIC_IDS` in [src/utils/tracks.ts](src/utils/tracks.ts).
 
-The title and track id are derived automatically from the filename; duration is read dynamically from the audio file.
+The title and track id are derived automatically from the filename; duration is read dynamically from the audio file. Audio is streamed straight from Cloudinary's CDN — no audio files are committed to this repo.
+
+## Deployment
+
+The app is deployed on [Vercel](https://vercel.com/) as a static Vite build (framework auto-detected, no extra config needed). Every push to `master` triggers a new deployment.
+
+**Live app:** https://hb-covers.vercel.app/
 
 ## License
 
