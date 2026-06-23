@@ -33,7 +33,15 @@
       "Bash(cp /tmp/mobile-test.gif screenshot-mobile.gif)",
       "Bash(rm -f /tmp/desktop-test.gif /tmp/mobile-test.gif)",
       "Bash(netstat -ano)",
-      "Bash(taskkill //F //PID 380)"
+      "Bash(taskkill //F //PID 380)",
+      "Read(//c/Users/hocin/AppData/Local/Temp/frames-desktop/**)",
+      "Read(//c/Users/hocin/AppData/Local/Temp/frames-mobile/**)",
+      "Bash(/c/Users/hocin/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.1-full_build/bin/ffmpeg.exe -y -i /tmp/desktop-trim.gif -vframes 1 /tmp/desktop-first.png)",
+      "Read(//c/Users/hocin/AppData/Local/Temp/**)",
+      "Bash(cp /tmp/desktop-trim.gif screenshot-desktop.gif)",
+      "Bash(cp /tmp/mobile-trim.gif screenshot-mobile.gif)",
+      "Bash(rm -f /tmp/desktop-trim.gif /tmp/mobile-trim.gif /tmp/desktop-first.png /tmp/mobile-first.png)",
+      "Bash(rm -rf /tmp/frames-desktop /tmp/frames-mobile)"
     ],
     "additionalDirectories": [
       "C:\\Users\\hocin\\Workspace\\my-guitar-covers\\.tmp-videos",
